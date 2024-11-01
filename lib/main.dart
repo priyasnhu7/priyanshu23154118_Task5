@@ -1,18 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/welcome_screen.dart';
+import 'package:coffee_shop_ui/models/coffee.dart';
 
-Future<void> main() async => runApp(const MyApp());
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+void main() {
+  runApp(const MainApp());
+}
 
-  // This widget is the root of your application.
+class MainApp extends StatelessWidget {
+  const MainApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(scaffoldBackgroundColor: Colors.black),
-      home: WelcomeScreen(),
+      theme: ThemeData(
+        scaffoldBackgroundColor: const Color(0xffF9F9F9),
+        textTheme: GoogleFonts.soraTextTheme(),
+      ),
+      home: const OnboardPage(),
+      routes: {
+        '/dashboard': (context) => const DashboardPage(),
+        '/detail': (context) {
+          Coffee coffee = ModalRoute.of(context)!.settings.arguments as Coffee;
+          return DetailPage(coffee: coffee);
+        },
+      },
     );
   }
 }
