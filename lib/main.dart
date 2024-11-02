@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:coffee_shop_ui/pages/dashboard_page.dart';
-
+import 'package:coffee_shop_ui/pages/detail_page.dart';
 import 'package:coffee_shop_ui/pages/onboard_page.dart';
-
+import 'package:flutter_application_1/detail_page.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 
 void main() {
   runApp(const MainApp());
